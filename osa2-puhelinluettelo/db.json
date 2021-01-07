@@ -1,0 +1,19 @@
+{
+  "persons": [
+    {
+      "name": "Rama Yar",
+      "number": "50-89-707070",
+      "id": 5
+    },
+    {
+      "name": "Tero Pikawatti",
+      "number": "666",
+      "id": 6
+    },
+    {
+      "name": "Tero P",
+      "number": "666",
+      "id": 7
+    }
+  ]
+}
