@@ -16,7 +16,7 @@ const App = () => {
 
   const getPhonebook = () => {
     Network.getAllPersons().then(allPersons => {
-      console.log("Got phonebook!", allPersons)
+      console.log("Got phonebook!")
       setPersons(allPersons)
     }).catch(error => console.log('No phonebook: ', error.message))
   }
@@ -54,9 +54,10 @@ const App = () => {
             console.log("Updated contact:", updatedPerson.name, newNum)
           })
           .catch(error => {
-            const errMsg = error.response.data.error
+            const errMsg = error.message
             console.log("Problem in updating person: ", errMsg)
-            showError(errMsg)
+            showError("Person no longer found!")
+            getPhonebook()
           })
 
         //showMessage("Updated contact: ", updatedPerson)
@@ -85,8 +86,7 @@ const App = () => {
     console.log('Deleting person with id ', id)
     if (window.confirm(`Delete ${personWithId(id).name}?`)) {
       Network.deletePerson(id)
-        .then(foo => {
-          console.log(foo)
+        .then(() => {
           let personCopy = persons.filter(x => x.id !== id)
           setPersons(personCopy)
           showMessage(`Deleted person ${personWithId(id).name}`)
@@ -94,7 +94,8 @@ const App = () => {
         .catch(error => {
           const errMsg = error.message
           console.log("Problem in deleting a person: ", errMsg)
-          showError(errMsg)
+          showError("Person no longer found!")
+          getPhonebook()
         })
     }
   }

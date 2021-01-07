@@ -7,13 +7,9 @@ const Contacs = ({ persons, handleDelPerson }) => {
         <div>
             { persons && persons.map((person) =>
                 <div key={person.id + 'd'}>
-                    <p>ppp{person.id}</p>
-                    <PhoneNum key={person.id + 'p'}
-                        
+                    <PhoneNum key={person.id + 'p'}    
                         name={person.name}
-                        number={person.number}
-                        id={person.id} />
-                
+                        number={person.number} />
                     <button key={person.id + 'b'} onClick={() => handleDelPerson(person.id)}>del</button>
               </div>  
             )}

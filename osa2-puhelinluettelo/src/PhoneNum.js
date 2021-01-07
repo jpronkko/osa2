@@ -1,10 +1,10 @@
 
 import React from 'react'
 
-const PhoneNum = ({ name, number, id }) => {
+const PhoneNum = ({ name, number}) => {
     return (
         <>
-            <p>Contact: {name} tel. {number} id {id}</p>
+            <p>Contact: {name} tel. {number}</p>
         </>
     )
 }
